@@ -67,16 +67,11 @@ public class ZipDirectorySnippet {
       return;
     }
     if (fileToZip.isDirectory()) {
-      if (fileName.endsWith("/")) {
-        zipOut.putNextEntry(new ZipEntry(fileName)); // To be zipped next
-        zipOut.closeEntry();
-      } else {
-        // Add the "/" mark explicitly to preserve structure while unzipping action is performed
-        zipOut.putNextEntry(new ZipEntry(fileName + "/"));
-        zipOut.closeEntry();
-      }
+      var directoryEntryName = fileName.endsWith("/") ? fileName : fileName + "/";
+      zipOut.putNextEntry(new ZipEntry(directoryEntryName));
+      zipOut.closeEntry();
       var children = fileToZip.listFiles();
-      for (var childFile : children) { // Recursively apply function to all children
+      for (var childFile : children) {
         zipFile(childFile, fileName + "/" + childFile.getName(), zipOut);
       }
       return;
