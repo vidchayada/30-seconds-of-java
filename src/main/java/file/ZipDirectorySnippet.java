@@ -69,7 +69,8 @@ public class ZipDirectorySnippet {
     if (fileToZip.isDirectory()) {
       var directoryEntryName = fileName.endsWith("/") ? fileName : fileName + "/";
       zipOut.putNextEntry(new ZipEntry(directoryEntryName));
-      zipOut.closeEntry();
+      // Directory entries are intentionally empty, so there is no content to write
+      zipOut.closeEntry(); // NOSONAR
       var children = fileToZip.listFiles();
       for (var childFile : children) {
         zipFile(childFile, fileName + "/" + childFile.getName(), zipOut);
