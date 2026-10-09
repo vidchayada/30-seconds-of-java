@@ -23,6 +23,7 @@
  */
 
 package string;
+
 import java.util.regex.Pattern;
 
 /**
@@ -30,7 +31,10 @@ import java.util.regex.Pattern;
  */
 public class CompareVersionSnippet {
 
-  private static final Pattern VERSION_PATTERN = Pattern.compile("(?<!\\w)\\d++(?:[.-]\\d++)*+");
+  // Possessive quantifiers (++ and *+) prevent catastrophic backtracking
+  private static final Pattern VERSION_PATTERN =
+          Pattern.compile("(?<!\\w)\\d++(?:[.-]\\d++)*+");
+
   /**
    * Compares two version strings.
    * Credits: https://stackoverflow.com/a/6702000/6645088 and https://stackoverflow.com/a/44592696/6645088
@@ -58,6 +62,8 @@ public class CompareVersionSnippet {
 
   private static String[] getVersionComponents(String version) {
     var matcher = VERSION_PATTERN.matcher(version);
+    // Use the first version-like token; if none is found, keep the input as is
     var extracted = matcher.find() ? matcher.group() : version;
-    return extracted.split("\\.");  }
+    return extracted.split("\\.");
+  }
 }
