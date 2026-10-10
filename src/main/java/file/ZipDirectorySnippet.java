@@ -36,6 +36,11 @@ import java.util.zip.ZipOutputStream;
  */
 public class ZipDirectorySnippet {
 
+  private  ZipDirectorySnippet() {
+    // utility class, not meant to be instantiated
+
+  }
+
   /**
    * Zip a complete directory.
    *

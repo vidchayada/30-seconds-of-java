@@ -62,6 +62,18 @@ public class BinarySearchIn2dArraySnippetTest {
     assertSearch(m, 3, 0, 1);
   }
 
+  @Test
+  void testSearchInRightPartOfLowerRow() {
+    int[][] m = {{0, 1, 2, 3}, {1, 4, 5, 15}, {3, 6, 9, 16}, {4, 10, 12, 17}};
+    assertSearch(m, 8, -1, -1);
+  }
+
+  @Test
+  void testNotFoundForUnsortedMatrix() {
+    int[][] m = {{0, 1, 2, 3}, {1, 4, 5, 15}, {3, 6, 9, 16}, {4, 5, 6, 7}};
+    assertSearch(m, 8, -1, -1);
+  }
+
   private static void assertSearch(int[][] matrix, int target, int row, int col) {
     Assertions.assertArrayEquals(new int[]{row, col},
             BinarySearchIn2dArraySnippet.binarySearchIn2darr(matrix, target));

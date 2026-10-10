@@ -34,6 +34,11 @@ import java.util.stream.Collectors;
  */
 public class GetAllPublicFieldNamesSnippet {
 
+  private GetAllPublicFieldNamesSnippet() {
+    // utility class, not meant to be instantiated
+
+  }
+
   /**
    * Print all declared public field names of the class or the interface the class extends.
    *

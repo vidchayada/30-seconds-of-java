@@ -32,6 +32,9 @@ import java.util.List;
  * ListAllFilesSnippet.
  */
 public class ListAllFilesSnippet {
+  private ListAllFilesSnippet() {
+    // utility class, not meant to be instantiated
+  }
 
   /**
    * Recursively list all the files in directory.

@@ -25,15 +25,23 @@
 package file;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.zip.ZipFile;
+import java.util.zip.ZipInputStream;
+import java.util.zip.ZipOutputStream;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
 /*
  * Tests for 30 Seconds of Java code library
@@ -79,5 +87,38 @@ class ZipDirectorySnippetTest {
       ZipDirectorySnippet.zipDirectory(src, dst);
     });
     Files.deleteIfExists(new File(dst).toPath());
+  }
+
+  @Test
+  void testZipSkipsHiddenFiles(@TempDir Path tempDir) throws IOException {
+    Path src = Files.createDirectory(tempDir.resolve("src"));
+    Files.writeString(src.resolve("visible.txt"), "visible");
+    Path hidden = Files.writeString(src.resolve(".hidden"), "hidden");
+    // On Windows a dot-file is not hidden unless the DOS attribute is set
+    if (Files.getFileStore(hidden).supportsFileAttributeView("dos")) {
+      Files.setAttribute(hidden, "dos:hidden", true);
+    }
+    Path zip = tempDir.resolve("out.zip");
+
+    ZipDirectorySnippet.zipDirectory(src.toString(), zip.toString());
+
+    try (var zipFile = new ZipFile(zip.toFile())) {
+      assertEquals(2, zipFile.size()); // "src/" and "src/visible.txt"
+      assertNotNull(zipFile.getEntry("src/visible.txt"));
+      assertNull(zipFile.getEntry("src/.hidden"));
+    }
+  }
+
+  @Test
+  void testZipFileWithDirectoryNameEndingWithSlash(@TempDir Path tempDir) throws IOException {
+    var out = new ByteArrayOutputStream();
+    try (var zipOut = new ZipOutputStream(out)) {
+      ZipDirectorySnippet.zipFile(tempDir.toFile(), "root/", zipOut);
+    }
+    try (var zipIn = new ZipInputStream(new ByteArrayInputStream(out.toByteArray()))) {
+      var entry = zipIn.getNextEntry();
+      assertNotNull(entry);
+      assertEquals("root/", entry.getName());
+    }
   }
 }

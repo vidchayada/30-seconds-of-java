@@ -34,6 +34,11 @@ import java.util.stream.Collectors;
  */
 public class GetAllMethodsSnippet {
 
+  private GetAllMethodsSnippet() {
+    // utility class, not meant to be instantiated
+
+  }
+
   /**
    * Print all declared methods of the class.
    *

@@ -34,6 +34,11 @@ import java.util.List;
  */
 public class ReadLinesSnippet {
 
+  private ReadLinesSnippet() {
+    // utility class, not meant to be instantiated
+
+  }
+
   /**
    * Read file as list of strings.
    *
