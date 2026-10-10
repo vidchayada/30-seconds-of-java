@@ -30,6 +30,10 @@ import java.util.Arrays;
  * AllEqualSnippet.
  */
 public class AllEqualSnippet {
+  private AllEqualSnippet() {
+    // utility class, not meant to be instantiated
+
+  }
 
   /**
    * Returns true if all elements in array are equal.

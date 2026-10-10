@@ -30,6 +30,10 @@ import java.util.regex.Pattern;
  * CompareVersionSnippet.
  */
 public class CompareVersionSnippet {
+  private CompareVersionSnippet() {
+    // utility class, not meant to be instantiated
+
+  }
 
   // Possessive quantifiers (++ and *+) prevent catastrophic backtracking
   private static final Pattern VERSION_PATTERN =

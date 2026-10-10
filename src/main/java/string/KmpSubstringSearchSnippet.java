@@ -29,6 +29,10 @@ package string;
  */
 
 public class KmpSubstringSearchSnippet {
+  private KmpSubstringSearchSnippet() {
+    // utility class, not meant to be instantiated
+
+  }
  
   /**
    * Implements the Knuth-Morris-Pratt (KMP) algorithm to find the of a substring.

@@ -29,6 +29,10 @@ package algorithm;
  */
 public class CycleSortSnippet {
 
+  private CycleSortSnippet() {
+    // utility class, not meant to be instantiated
+  }
+
   /**
    * Sort an array with cycleSort algorithm.
    *

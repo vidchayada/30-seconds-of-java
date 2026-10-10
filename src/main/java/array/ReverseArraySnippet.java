@@ -28,6 +28,10 @@ package array;
  * ReverseArraySnippet.
  */
 public class ReverseArraySnippet {
+  private ReverseArraySnippet() {
+    // utility class, not meant to be instantiated
+
+  }
 
   /**
    * The function then reverses the elements of the array between the starting and ending

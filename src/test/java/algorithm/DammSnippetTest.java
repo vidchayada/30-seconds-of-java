@@ -24,12 +24,12 @@
 
 package algorithm;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.Test;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 
 /**
@@ -122,5 +122,31 @@ class DammSnippetTest {
     long invalidNumber = 5723L;
     boolean isValidInvalid = DammSnippet.validate(invalidNumber);
     assertFalse(isValidInvalid);
+  }
+
+  @Test
+  void testCalculateCheckSumDigitWithIntAndLong() {
+    assertEquals(4, DammSnippet.calculateCheckSumDigit(572));
+    assertEquals(4, DammSnippet.calculateCheckSumDigit(572L));
+  }
+
+  @Test
+  void testGenerateCheckSumWithLong() {
+    assertEquals(5724L, DammSnippet.generateCheckSum(572L));
+  }
+
+  @Test
+  void testCalculateCheckSumDigitWithNull() {
+    assertThrows(IllegalArgumentException.class,
+            () -> DammSnippet.calculateCheckSumDigit((String) null));
+  }
+
+  @Test
+  void testConstructorIsNotAllowed() throws Exception {
+    Constructor<DammSnippet> constructor = DammSnippet.class.getDeclaredConstructor();
+    constructor.setAccessible(true);
+    InvocationTargetException ex = assertThrows(InvocationTargetException.class,
+            () -> constructor.newInstance());
+    assertInstanceOf(UnsupportedOperationException.class, ex.getCause());
   }
 }

@@ -30,6 +30,10 @@ import java.util.Arrays;
  * FindMaxSnippet.
  */
 public class FindMaxSnippet {
+  private FindMaxSnippet() {
+    // utility class, not meant to be instantiated
+
+  }
 
   /**
    * Returns the maximum integer from the array using reduction.

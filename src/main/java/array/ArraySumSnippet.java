@@ -30,6 +30,10 @@ import java.util.Arrays;
  * ArraySumSnippet.
  */
 public class ArraySumSnippet {
+  private ArraySumSnippet() {
+    // utility class, not meant to be instantiated
+
+  }
 
   /**
    * Returns sum of the integers in the array.

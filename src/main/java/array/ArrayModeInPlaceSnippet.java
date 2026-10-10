@@ -31,6 +31,11 @@ import java.util.Arrays;
  */
 public class ArrayModeInPlaceSnippet {
 
+  private ArrayModeInPlaceSnippet() {
+    // utility class, not meant to be instantiated
+
+  }
+
   /**
   * Returns the mode of the array.
   *

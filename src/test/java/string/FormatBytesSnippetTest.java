@@ -45,4 +45,11 @@ class FormatBytesSnippetTest {
     assertEquals("Invalid Input", FormatBytesSnippet.formatBytes(-1024));
     assertEquals("8388608.00 TB", FormatBytesSnippet.formatBytes(Long.MAX_VALUE));
   }
+
+  @Test
+  void formatBytesSmallValues() {
+    assertEquals("0 B", FormatBytesSnippet.formatBytes(0));
+    assertEquals("512 B", FormatBytesSnippet.formatBytes(512));
+    assertEquals("2.00 KB", FormatBytesSnippet.formatBytes(2048));
+  }
 }

@@ -28,6 +28,10 @@ package math;
  * LuhnSnippet.
  */
 public class LuhnSnippet {
+  private LuhnSnippet() {
+    // utility class, not meant to be instantiated
+
+  }
 
   /**
    * Calculates checksum for a given number with Luhn's algorithm. Works only on non-negative

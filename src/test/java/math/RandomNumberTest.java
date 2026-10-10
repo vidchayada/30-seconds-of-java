@@ -70,4 +70,11 @@ class RandomNumberTest {
     assertThrows(IllegalArgumentException.class, 
         () -> RandomNumber.getRandomNumber(d1, d2));
   }
+
+  @RepeatedTest(100)
+  void testGetRandomByte() {
+    Number byteResult = RandomNumber.getRandomNumber((byte) 2, (byte) 7);
+    assertTrue(byteResult instanceof Byte);
+    assertTrue(byteResult.byteValue() >= 2 && byteResult.byteValue() <= 7);
+  }
 }

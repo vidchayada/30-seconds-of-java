@@ -69,6 +69,12 @@ class FibonacciSnippetTest {
     assertEquals(55, FibonacciSnippet.fibonacci(10));
     assertEquals(6765, FibonacciSnippet.fibonacci(20));
     assertEquals(102334155, FibonacciSnippet.fibonacci(40));
+    assertEquals(1, FibonacciSnippet.fibonacciBig(1));
+    assertEquals(1, FibonacciSnippet.fibonacciBig(2));
+    assertEquals(2, FibonacciSnippet.fibonacciBig(3));
+    assertEquals(55, FibonacciSnippet.fibonacciBig(10));
+    assertEquals(6765, FibonacciSnippet.fibonacciBig(20));
+    assertEquals(102334155, FibonacciSnippet.fibonacciBig(40));
   }
 
   /**

@@ -29,6 +29,10 @@ package math;
  */
 public class EvenOdd {
 
+  private EvenOdd() {
+    // utility class, not meant to be instantiated
+  }
+
   /**
    * Returns string denoting number is odd or even.
    *

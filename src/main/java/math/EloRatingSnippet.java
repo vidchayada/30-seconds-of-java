@@ -28,6 +28,10 @@ package math;
  * EloRatingSnippet.
  */
 public class EloRatingSnippet {
+  private EloRatingSnippet() {
+    // utility class, not meant to be instantiated
+
+  }
 
   static final int BASE = 400; //Two types are popular - 400 and 480. We will choose 400 here
   static final int RATING_ADJUSTMENT_FACTOR = 32; //32 is the standard for Beginner Games

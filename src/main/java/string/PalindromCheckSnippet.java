@@ -28,6 +28,10 @@ package string;
  * PalindromCheckSnippet.
  */
 public class PalindromCheckSnippet {
+  private PalindromCheckSnippet() {
+    // utility class, not meant to be instantiated
+
+  }
 
   /**
    * Checks if given string is palindrome (same forward and backward). Skips non-letter characters

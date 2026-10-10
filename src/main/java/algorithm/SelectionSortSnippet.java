@@ -29,6 +29,10 @@ package algorithm;
  */
 public class SelectionSortSnippet {
 
+  private SelectionSortSnippet() {
+    // utility class, not meant to be instantiated
+  }
+
   /**
    * Sort an array with selectionSort algorithm.
    *

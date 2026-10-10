@@ -31,6 +31,10 @@ import java.util.Random;
  */
 public class DiceThrow {
 
+  private DiceThrow() {
+    // utility class, not meant to be instantiated
+  }
+
   private static Random random = new Random();
 
   /**

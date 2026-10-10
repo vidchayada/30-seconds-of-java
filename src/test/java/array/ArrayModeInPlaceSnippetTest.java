@@ -42,4 +42,9 @@ public class ArrayModeInPlaceSnippetTest {
     assertEquals(0, ArrayModeInPlaceSnippet.modeArrayInPlace(new int[]{-4, 0, -2, -1, 0}));
     assertEquals(1, ArrayModeInPlaceSnippet.modeArrayInPlace(new int[]{1, 1, 1, 1, 1, 1}));
   }
+
+  @Test
+  void testModeArrayEmpty() {
+    assertEquals(0, ArrayModeInPlaceSnippet.modeArrayInPlace(new int[]{}));
+  }
 }

@@ -24,10 +24,12 @@
 
 package array;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Tests for 30 Seconds of Java code library.
@@ -43,5 +45,20 @@ class ArrayModeSnippetTest {
     assertEquals(List.of(1, 2, 3, 4), ArrayModeSnippet.modeArray(new int[]{1, 2, 3, 4}));
     assertEquals(List.of(), ArrayModeSnippet.modeArray(new int[]{}));
     assertEquals(List.of(-1, -2), ArrayModeSnippet.modeArray(new int[]{-1, -1, -2, -2, -3}));
+  }
+
+  @Test
+  void testModeArraySingleAndIdenticalElements() {
+    assertEquals(List.of(7), ArrayModeSnippet.modeArray(new int[]{7}));
+    assertEquals(List.of(5), ArrayModeSnippet.modeArray(new int[]{5, 5, 5, 5}));
+  }
+  
+  @Test
+  void testConstructorIsNotAllowed() throws Exception {
+    Constructor<ArrayModeSnippet> constructor = ArrayModeSnippet.class.getDeclaredConstructor();
+    constructor.setAccessible(true);
+    InvocationTargetException ex = assertThrows(InvocationTargetException.class,
+            () -> constructor.newInstance());
+    assertInstanceOf(IllegalStateException.class, ex.getCause());
   }
 }

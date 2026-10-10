@@ -31,6 +31,10 @@ import java.util.Set;
  * CommonLettersSnippet.
  */
 public class CommonLettersSnippet {
+  private CommonLettersSnippet() {
+    // utility class, not meant to be instantiated
+
+  }
 
   /**
    * Find Common Characters inside given two strings.

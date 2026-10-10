@@ -31,6 +31,10 @@ import java.util.Set;
  * DuplicateCharacterSnippet.
  */
 public class DuplicateCharacterSnippet {
+  private DuplicateCharacterSnippet() {
+    // utility class, not meant to be instantiated
+
+  }
 
   /**
    * Remove Duplicate Characters from a string.

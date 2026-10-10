@@ -24,14 +24,14 @@
 
 package algorithm;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.util.stream.Stream;
+
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Tests for {@link LuhnModnSnippet#generateCheckCharacter(String)} and
@@ -81,5 +81,30 @@ class LuhnModnSnippetTest {
             Arguments.of("", null, true),
             Arguments.of("WORLD", 'A', false)
     );
+  }
+
+  @Test
+  void testCodePointConversions() {
+    assertEquals(10, LuhnModnSnippet.codePointFromCharacter('A'));
+    assertEquals('A', LuhnModnSnippet.characterFromCodePoint(10));
+    assertEquals(36, LuhnModnSnippet.numberOfValidInputCharacters());
+  }
+
+  @Test
+  void testInvalidCharacterAndCodePoint() {
+    assertThrows(IllegalArgumentException.class,
+            () -> LuhnModnSnippet.codePointFromCharacter('a'));
+    assertThrows(IllegalArgumentException.class,
+            () -> LuhnModnSnippet.characterFromCodePoint(-1));
+    assertThrows(IllegalArgumentException.class,
+            () -> LuhnModnSnippet.characterFromCodePoint(36));
+  }
+
+  @Test
+  void testNullInput() {
+    assertThrows(IllegalArgumentException.class,
+            () -> LuhnModnSnippet.generateCheckCharacter(null));
+    assertThrows(IllegalArgumentException.class,
+            () -> LuhnModnSnippet.validateCheckCharacter(null));
   }
 }

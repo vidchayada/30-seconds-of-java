@@ -29,6 +29,10 @@ package algorithm;
  */
 public class BubbleSortSnippet {
 
+  private BubbleSortSnippet() {
+    // utility class, not meant to be instantiated
+  }
+
   /**
    * Sort an array with bubbleSort algorithm.
    *

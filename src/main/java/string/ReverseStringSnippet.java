@@ -28,6 +28,10 @@ package string;
  * ReversStringSnippet.
  */
 public class ReverseStringSnippet {
+  private ReverseStringSnippet() {
+    // utility class, not meant to be instantiated
+
+  }
 
   /**
    * Reverse string.

@@ -30,6 +30,10 @@ import java.util.Arrays;
  * MultiArrayConcatenationSnippet.
  */
 public class MultiArrayConcatenationSnippet {
+  private MultiArrayConcatenationSnippet() {
+    // utility class, not meant to be instantiated
+
+  }
 
   /**
    * Generic N array concatenation Credits: Joachim Sauer https://stackoverflow.com/questions/80476/how-can-i-concatenate-two-arrays-in-java.

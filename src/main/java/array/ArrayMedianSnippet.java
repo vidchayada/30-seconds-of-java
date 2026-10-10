@@ -30,6 +30,10 @@ import java.util.Arrays;
  * ArrayMedianSnippet.
  */
 public class ArrayMedianSnippet {
+  private ArrayMedianSnippet() {
+    // utility class, not meant to be instantiated
+
+  }
 
   /**
    * Returns the median of the array.

@@ -28,6 +28,10 @@ package string;
  * LevenshteinDistanceSnippet.
  */
 public class LevenshteinDistanceSnippet {
+  private LevenshteinDistanceSnippet() {
+    // utility class, not meant to be instantiated
+
+  }
 
   /**
    * Find the Levenshtein distance between two words. https://en.wikipedia.org/wiki/Levenshtein_distance

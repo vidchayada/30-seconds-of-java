@@ -29,6 +29,10 @@ package algorithm;
  */
 public class LinearSearchSnippet {
 
+  private LinearSearchSnippet() {
+    // utility class, not meant to be instantiated
+  }
+
   /**
    * Search an item with linearSearch algorithm.
    *
