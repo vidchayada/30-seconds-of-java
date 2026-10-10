@@ -32,6 +32,7 @@ public class LeastCommonMultipleSnippet {
     // utility class, not meant to be instantiated
 
   }
+
   /**
    * Least common multiple  calculation.
    *

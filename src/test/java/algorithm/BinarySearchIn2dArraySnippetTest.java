@@ -49,16 +49,21 @@ public class BinarySearchIn2dArraySnippetTest {
   @Test
   void testMoreBranches() {
     int[][] m = {{3, 4, 7, 9}, {12, 24, 26, 29}, {34, 55, 88, 99}, {100, 189, 232, 234}};
-    Assertions.assertArrayEquals(new int[]{1, 1}, BinarySearchIn2dArraySnippet.binarySearchIn2darr(m, 24));
-    Assertions.assertArrayEquals(new int[]{0, 1}, BinarySearchIn2dArraySnippet.binarySearchIn2darr(m, 4));
-    Assertions.assertArrayEquals(new int[]{3, 1}, BinarySearchIn2dArraySnippet.binarySearchIn2darr(m, 189));
-    Assertions.assertArrayEquals(new int[]{0, 0}, BinarySearchIn2dArraySnippet.binarySearchIn2darr(m, 3));
-    Assertions.assertArrayEquals(new int[]{-1, -1}, BinarySearchIn2dArraySnippet.binarySearchIn2darr(m, 300));
+    assertSearch(m, 24, 1, 1);
+    assertSearch(m, 4, 0, 1);
+    assertSearch(m, 189, 3, 1);
+    assertSearch(m, 3, 0, 0);
+    assertSearch(m, 300, -1, -1);
   }
 
   @Test
   void testTwoRowMatrix() {
     int[][] m = {{1, 3, 5}, {7, 9, 11}};
-    Assertions.assertArrayEquals(new int[]{0, 1}, BinarySearchIn2dArraySnippet.binarySearchIn2darr(m, 3));
+    assertSearch(m, 3, 0, 1);
+  }
+
+  private static void assertSearch(int[][] matrix, int target, int row, int col) {
+    Assertions.assertArrayEquals(new int[]{row, col},
+            BinarySearchIn2dArraySnippet.binarySearchIn2darr(matrix, target));
   }
 }

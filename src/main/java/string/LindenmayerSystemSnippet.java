@@ -34,6 +34,7 @@ public class LindenmayerSystemSnippet {
     // utility class, not meant to be instantiated
 
   }
+
   /**
    * Generates an L-system string based on axiom, production rules, and a number of iterations.
    *

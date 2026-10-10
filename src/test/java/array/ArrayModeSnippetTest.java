@@ -24,12 +24,14 @@
 
 package array;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Tests for 30 Seconds of Java code library.
@@ -52,7 +54,7 @@ class ArrayModeSnippetTest {
     assertEquals(List.of(7), ArrayModeSnippet.modeArray(new int[]{7}));
     assertEquals(List.of(5), ArrayModeSnippet.modeArray(new int[]{5, 5, 5, 5}));
   }
-  
+
   @Test
   void testConstructorIsNotAllowed() throws Exception {
     Constructor<ArrayModeSnippet> constructor = ArrayModeSnippet.class.getDeclaredConstructor();
